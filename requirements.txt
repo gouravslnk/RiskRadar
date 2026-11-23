@@ -1,0 +1,14 @@
+numpy
+tifffile
+xgboost
+scikit-learn
+torch
+pandas
+tqdm
+fastapi
+uvicorn[standard]
+pydantic
+tensorflow
+joblib
+gradio
+
