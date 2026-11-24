@@ -213,25 +213,13 @@ export function Header({
 export function Footer() {
   return (
     <footer className="w-full border-t border-neutral-200 dark:border-[#1e1e1e] py-6 px-4 sm:px-6 lg:px-8 mt-auto bg-neutral-50 dark:bg-[#080808] text-xs font-mono text-neutral-500 dark:text-neutral-400">
-      <div className="max-w-7xl mx-auto space-y-4">
-        {/* Academic Disclaimer Callout */}
-        <div className="p-3 bg-amber-500/10 border border-amber-500/20 text-amber-800 dark:text-amber-300 text-[11px] leading-relaxed flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <div className="flex items-start gap-2">
-            <span className="font-bold uppercase tracking-wider text-[10px] px-1.5 py-0.5 bg-amber-500/20 border border-amber-500/30 flex-shrink-0">
-              Academic Prototype
-            </span>
-            <span>
-              RiskRadar is an educational prototype combining open telemetry (Open-Meteo, USGS, NASA FIRMS) with machine learning models. It is <strong>not</strong> an official government warning or emergency dispatch system. For life safety and active alerts, always follow <strong>NDMA, IMD, or local civil defense directives</strong>.
-            </span>
-          </div>
-        </div>
-
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2 border-t border-neutral-200 dark:border-[#1a1a1a]">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <span className="px-1.5 py-0.5 bg-neutral-200 dark:bg-neutral-800 text-[10px] text-neutral-700 dark:text-neutral-300 font-bold">
               RISK RADAR
             </span>
-            <span>Multi-Hazard Academic Research Platform</span>
+            <span>Multi-Hazard Early Warning & Mitigation Platform</span>
           </div>
           <div className="text-[11px] text-neutral-500 dark:text-neutral-500">
             <span>Telemetry: Sentinel-1 SAR (ESA) • NASA FIRMS VIIRS • USGS Earthquake Hazards • Open-Meteo</span>

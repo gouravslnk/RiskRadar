@@ -1048,63 +1048,6 @@ export function HomePage({
           </div>
         </div>
       </div>
-
-      {/* 5. System Architecture & Pipeline (Great for review / viva presentation!) */}
-      <div className="p-6 sm:p-8 bg-neutral-50 dark:bg-[#0c0c0c] border border-neutral-200 dark:border-[#1e1e1e] space-y-6">
-        <div>
-          <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-neutral-400">
-            HOW RISKRADAR WORKS
-          </span>
-          <h2 className="font-serif text-2xl font-bold text-neutral-900 dark:text-white mt-0.5">
-            End-to-End Multi-Hazard Architecture
-          </h2>
-          <p className="text-xs text-neutral-600 dark:text-neutral-400 mt-1 max-w-2xl">
-            From low-Earth orbit satellite imagery to real-time ground evacuation coordinates.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="p-4 bg-white dark:bg-[#141414] border border-neutral-200 dark:border-[#222222] space-y-2">
-            <span className="font-mono text-xs font-bold text-neutral-400">01 // INGESTION</span>
-            <h4 className="font-serif font-bold text-base text-neutral-900 dark:text-white">
-              Multi-Sensor Feeds
-            </h4>
-            <p className="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
-              Pulls live Sentinel-1 SAR imagery (ESA), thermal anomalies from NASA FIRMS, seismic catalogs from USGS, and precipitation from Open-Meteo.
-            </p>
-          </div>
-
-          <div className="p-4 bg-white dark:bg-[#141414] border border-neutral-200 dark:border-[#222222] space-y-2">
-            <span className="font-mono text-xs font-bold text-neutral-400">02 // INFERENCE</span>
-            <h4 className="font-serif font-bold text-base text-neutral-900 dark:text-white">
-              AI Prediction Models
-            </h4>
-            <p className="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
-              Deep U-Net generates flood segmentation masks; LSTM computes seismic recurrence; XGBoost predicts next-day wildfire escalation.
-            </p>
-          </div>
-
-          <div className="p-4 bg-white dark:bg-[#141414] border border-neutral-200 dark:border-[#222222] space-y-2">
-            <span className="font-mono text-xs font-bold text-neutral-400">03 // FUSION</span>
-            <h4 className="font-serif font-bold text-base text-neutral-900 dark:text-white">
-              Risk Normalization
-            </h4>
-            <p className="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
-              Harmonizes disparate physical units into unified 0–100% danger percentages and identifies the dominant acute threat.
-            </p>
-          </div>
-
-          <div className="p-4 bg-white dark:bg-[#141414] border border-neutral-200 dark:border-[#222222] space-y-2">
-            <span className="font-mono text-xs font-bold text-neutral-400">04 // EVACUATION</span>
-            <h4 className="font-serif font-bold text-base text-neutral-900 dark:text-white">
-              Road Safe Corridors
-            </h4>
-            <p className="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
-              When risk thresholds are exceeded, A* pathfinding calculates the safest road corridor over OSRM highway graphs away from high-hazard zones.
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }
