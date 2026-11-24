@@ -1,5 +1,7 @@
 import os
+import socket
 
+# Prevent Gradio 5/6 SSR proxy from intercepting port 7860
 os.environ["GRADIO_SSR_MODE"] = "false"
 
 import gradio as gr
@@ -25,4 +27,16 @@ app = gr.mount_gradio_app(fastapi_app, demo, path="/")
 if __name__ == "__main__":
     import uvicorn
     port = int(os.environ.get("PORT", 7860))
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    
+    # Check if host supervisor is already listening on this port
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    in_use = (s.connect_ex(("127.0.0.1", port)) == 0)
+    s.close()
+    
+    if not in_use:
+        uvicorn.run(app, host="0.0.0.0", port=port)
+    else:
+        import time
+        # Keep process alive if managed externally
+        while True:
+            time.sleep(3600)
