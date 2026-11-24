@@ -46,9 +46,31 @@ function App() {
     analyzeAll(defaultLocation)
   }, [])
 
+  async function fetchWithRetry(url, options = {}, retries = 4, delayMs = 3000) {
+    for (let i = 0; i < retries; i++) {
+      try {
+        const res = await fetch(url, options)
+        if (res.ok) return res
+        if ([502, 503, 504].includes(res.status) && i < retries - 1) {
+          setMessage('Waking up AI prediction engines... please wait a moment')
+          await new Promise((r) => setTimeout(r, delayMs))
+          continue
+        }
+        return res
+      } catch (err) {
+        if (i < retries - 1) {
+          setMessage('Connecting to AI cloud service...')
+          await new Promise((r) => setTimeout(r, delayMs))
+        } else {
+          throw err
+        }
+      }
+    }
+  }
+
   async function loadHotspots() {
     try {
-      const response = await fetch(`${API_BASE}/api/hotspots`)
+      const response = await fetchWithRetry(`${API_BASE}/api/hotspots`)
       if (!response.ok) throw new Error('Hotspot API failed')
       setHotspots(await response.json())
     } catch {
@@ -200,7 +222,7 @@ function App() {
     setLoading(true)
     setMessage('Scanning all hazards...')
     try {
-      const response = await fetch(`${API_BASE}/api/hazards/analyze`, {
+      const response = await fetchWithRetry(`${API_BASE}/api/hazards/analyze`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -261,7 +283,7 @@ function App() {
               }
             : { latitude: Number(nextLocation.latitude), longitude: Number(nextLocation.longitude) }
 
-      const response = await fetch(`${API_BASE}${endpoint}`, {
+      const response = await fetchWithRetry(`${API_BASE}${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
@@ -287,7 +309,7 @@ function App() {
 
   async function loadSafestRoute(kind, nextLocation) {
     try {
-      const response = await fetch(`${API_BASE}/api/route/safest`, {
+      const response = await fetchWithRetry(`${API_BASE}/api/route/safest`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
