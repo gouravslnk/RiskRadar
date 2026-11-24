@@ -10,5 +10,4 @@ uvicorn[standard]
 pydantic
 tensorflow
 joblib
-gradio
-
+gradio>=4.40.0,<5.0.0
