@@ -116,9 +116,11 @@ export function Header({
               onClick={() => onNavigate('home')}
               className="flex items-center gap-3 text-left focus:outline-none group"
             >
-              <div className="px-2.5 py-1 bg-black text-white dark:bg-white dark:text-black font-mono font-bold text-xs tracking-wider">
-                RR
-              </div>
+              <img
+                src="/favicon.svg"
+                alt="RiskRadar Logo"
+                className="w-8 h-8 rounded-lg shadow-sm group-hover:scale-105 transition-transform"
+              />
               <div className="flex flex-col">
                 <span className="font-serif font-bold text-lg tracking-tight text-neutral-900 dark:text-white leading-none">
                   RiskRadar
