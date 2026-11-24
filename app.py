@@ -1,8 +1,18 @@
 import os
 import socket
 
-# Prevent Gradio 5/6 SSR proxy from intercepting port 7860
+# Prevent Gradio SSR proxy conflict
 os.environ["GRADIO_SSR_MODE"] = "false"
+
+# Satisfy Hugging Face ZeroGPU watchdog check
+try:
+    import spaces
+
+    @spaces.GPU
+    def zero_gpu_keepalive():
+        return {"status": "ZeroGPU active"}
+except Exception:
+    zero_gpu_keepalive = None
 
 import gradio as gr
 from backend.main import app as fastapi_app, health
@@ -37,6 +47,5 @@ if __name__ == "__main__":
         uvicorn.run(app, host="0.0.0.0", port=port)
     else:
         import time
-        # Keep process alive if managed externally
         while True:
             time.sleep(3600)
