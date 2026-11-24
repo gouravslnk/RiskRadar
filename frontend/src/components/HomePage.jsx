@@ -592,7 +592,7 @@ export function HomePage({
         <div className="relative z-10 space-y-6">
           <div className="flex flex-wrap items-center gap-2">
             <span className="font-mono text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 bg-neutral-100 dark:bg-[#1a1a1a] text-neutral-800 dark:text-neutral-200 border border-neutral-200 dark:border-[#262626]">
-              NATIONAL DISASTER INTELLIGENCE PLATFORM
+              AI EARLY WARNING // INDIA
             </span>
             <div className="flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -600,15 +600,12 @@ export function HomePage({
             </div>
           </div>
 
-          <div className="max-w-3xl space-y-3">
+          <div className="max-w-3xl space-y-2">
             <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900 dark:text-white leading-[1.08]">
               Predict Multi-Hazards. <br className="hidden sm:inline" />
-              <span className="italic font-normal text-neutral-500 dark:text-neutral-400">
-                Chart Safe Corridors.
-              </span>
             </h1>
-            <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-2xl">
-              An AI-powered environmental monitoring suite for India. We integrate dual-polarization Sentinel-1 radar satellite masks, deep LSTM seismic sequence regression, and NASA VIIRS 375m thermal infrared passes into a unified threat index with road evacuation guidance.
+            <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 max-w-xl">
+              Real-time satellite & seismic intelligence for disaster prediction and safe evacuation across India.
             </p>
           </div>
 
@@ -876,174 +873,135 @@ export function HomePage({
         </div>
       )}
 
-      {/* 4. Three Dedicated AI Deep-Dive Showcases (Clean feature showcases replacing redundant cards!) */}
-      <div className="space-y-4">
-        <div>
-          <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-neutral-400">
-            SPECIALIZED RESEARCH SUITES
-          </span>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-white mt-0.5">
-            Dedicated AI Hazard Radars
+      {/* 4. Specialized Hazard Radars - Sleek Minimal Action Cards */}
+      <div className="space-y-3">
+        <div className="flex items-center justify-between">
+          <h2 className="font-serif text-2xl font-bold text-neutral-900 dark:text-white">
+            Specialized Hazard Radars
           </h2>
-          <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mt-1 max-w-3xl">
-            Each disaster module is powered by an independent machine learning architecture. Launch the dedicated radars below to interact with satellite TIFF segmentation, seismic sequence plots, and live NASA fire radii.
-          </p>
+          <span className="font-mono text-xs text-neutral-400 hidden sm:inline">
+            Click to launch full workspace
+          </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Showcase 1: Flood Radar */}
-          <div className="p-6 bg-white dark:bg-[#0c0c0c] border border-neutral-200 dark:border-[#1e1e1e] flex flex-col justify-between hover:border-blue-400 dark:hover:border-blue-500/50 transition-all group">
-            <div className="space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Card 1: Flood Radar */}
+          <div
+            onClick={onOpenFlood}
+            className="p-5 bg-white dark:bg-[#0c0c0c] border border-neutral-200 dark:border-[#1e1e1e] flex flex-col justify-between hover:border-blue-500 hover:shadow-sm dark:hover:border-blue-500/50 transition-all cursor-pointer group"
+          >
+            <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <div className="p-2.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
-                  <Waves size={24} />
+                <div className="p-2 bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                  <Waves size={20} />
                 </div>
                 <span className="font-mono text-[10px] uppercase font-bold px-2 py-0.5 bg-blue-50 dark:bg-[#161616] text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-900/50">
-                  PyTorch Deep U-Net
+                  U-Net SAR
                 </span>
               </div>
 
               <div>
-                <h3 className="font-serif text-xl font-bold text-neutral-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  Flood Inundation Radar
+                <h3 className="font-serif text-lg font-bold text-neutral-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  Flood Inundation
                 </h3>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400 mt-2 leading-relaxed">
-                  Processes dual-polarization (VV/VH) Synthetic Aperture Radar (SAR) imagery to segment standing floodwaters through heavy monsoon cloud cover.
+                <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">
+                  Sentinel-1 radar water segmentation & live rainfall radar.
                 </p>
               </div>
 
-              <div className="space-y-2 pt-2 border-t border-neutral-100 dark:border-[#1a1a1a] text-xs font-mono text-neutral-600 dark:text-neutral-400">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 size={13} className="text-blue-500 flex-shrink-0" />
-                  <span>Sentinel-1 SAR satellite TIFF masks</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 size={13} className="text-blue-500 flex-shrink-0" />
-                  <span>Live 24h & 72h precipitation tracking</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 size={13} className="text-blue-500 flex-shrink-0" />
-                  <span>Zone Radius & spatial contour control</span>
-                </div>
+              <div className="flex items-center gap-2 font-mono text-[10px] text-neutral-400 pt-1">
+                <span className="px-1.5 py-0.5 bg-neutral-100 dark:bg-[#161616] border border-neutral-200 dark:border-[#222222]">
+                  Dual-Pol SAR
+                </span>
+                <span className="px-1.5 py-0.5 bg-neutral-100 dark:bg-[#161616] border border-neutral-200 dark:border-[#222222]">
+                  Precipitation
+                </span>
               </div>
             </div>
 
-            <div className="pt-6 mt-4 border-t border-neutral-100 dark:border-[#1a1a1a] flex items-center justify-between">
-              <span className="font-mono text-[11px] font-bold text-neutral-500">
-                IoU: 0.642 • Sentinel-1
-              </span>
-              <button
-                type="button"
-                onClick={onOpenFlood}
-                className="inline-flex items-center gap-1.5 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-mono text-xs uppercase font-bold tracking-wider transition-all group-hover:translate-x-0.5"
-              >
-                <span>Launch Radar</span>
-                <ArrowRight size={13} />
-              </button>
+            <div className="pt-4 mt-4 border-t border-neutral-100 dark:border-[#1a1a1a] flex items-center justify-between text-xs font-mono font-bold text-blue-600 dark:text-blue-400">
+              <span>Launch Radar</span>
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
 
-          {/* Showcase 2: Seismic Predictor */}
-          <div className="p-6 bg-white dark:bg-[#0c0c0c] border border-neutral-200 dark:border-[#1e1e1e] flex flex-col justify-between hover:border-amber-400 dark:hover:border-amber-500/50 transition-all group">
-            <div className="space-y-4">
+          {/* Card 2: Seismic Tracker */}
+          <div
+            onClick={onOpenEarthquake}
+            className="p-5 bg-white dark:bg-[#0c0c0c] border border-neutral-200 dark:border-[#1e1e1e] flex flex-col justify-between hover:border-amber-500 hover:shadow-sm dark:hover:border-amber-500/50 transition-all cursor-pointer group"
+          >
+            <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <div className="p-2.5 bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
-                  <Activity size={24} />
+                <div className="p-2 bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                  <Activity size={20} />
                 </div>
                 <span className="font-mono text-[10px] uppercase font-bold px-2 py-0.5 bg-amber-50 dark:bg-[#161616] text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-900/50">
-                  LSTM Neural Net
+                  LSTM Net
                 </span>
               </div>
 
               <div>
-                <h3 className="font-serif text-xl font-bold text-neutral-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
-                  Seismic Sequence Model
+                <h3 className="font-serif text-lg font-bold text-neutral-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                  Seismic Sequence
                 </h3>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400 mt-2 leading-relaxed">
-                  Sequential earthquake recurrence model analyzing tectonic plate baseline, hypocenter depth (0–700km), and Himalayan collision belt risk factors.
+                <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">
+                  Sequential model predicting earthquake magnitude & tectonic depth.
                 </p>
               </div>
 
-              <div className="space-y-2 pt-2 border-t border-neutral-100 dark:border-[#1a1a1a] text-xs font-mono text-neutral-600 dark:text-neutral-400">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 size={13} className="text-amber-500 flex-shrink-0" />
-                  <span>LSTM magnitude regression (M 4.0+)</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 size={13} className="text-amber-500 flex-shrink-0" />
-                  <span>Hypocenter depth & tectonic priors</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 size={13} className="text-amber-500 flex-shrink-0" />
-                  <span>India Seismic Zones IV & V tracking</span>
-                </div>
+              <div className="flex items-center gap-2 font-mono text-[10px] text-neutral-400 pt-1">
+                <span className="px-1.5 py-0.5 bg-neutral-100 dark:bg-[#161616] border border-neutral-200 dark:border-[#222222]">
+                  USGS Catalog
+                </span>
+                <span className="px-1.5 py-0.5 bg-neutral-100 dark:bg-[#161616] border border-neutral-200 dark:border-[#222222]">
+                  Zones IV & V
+                </span>
               </div>
             </div>
 
-            <div className="pt-6 mt-4 border-t border-neutral-100 dark:border-[#1a1a1a] flex items-center justify-between">
-              <span className="font-mono text-[11px] font-bold text-neutral-500">
-                USGS + Historic Arc
-              </span>
-              <button
-                type="button"
-                onClick={onOpenEarthquake}
-                className="inline-flex items-center gap-1.5 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white font-mono text-xs uppercase font-bold tracking-wider transition-all group-hover:translate-x-0.5"
-              >
-                <span>Launch Seismic</span>
-                <ArrowRight size={13} />
-              </button>
+            <div className="pt-4 mt-4 border-t border-neutral-100 dark:border-[#1a1a1a] flex items-center justify-between text-xs font-mono font-bold text-amber-600 dark:text-amber-400">
+              <span>Launch Seismic</span>
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
 
-          {/* Showcase 3: Wildfire Detector */}
-          <div className="p-6 bg-white dark:bg-[#0c0c0c] border border-neutral-200 dark:border-[#1e1e1e] flex flex-col justify-between hover:border-rose-400 dark:hover:border-rose-500/50 transition-all group">
-            <div className="space-y-4">
+          {/* Card 3: Wildfire Monitor */}
+          <div
+            onClick={onOpenWildfire}
+            className="p-5 bg-white dark:bg-[#0c0c0c] border border-neutral-200 dark:border-[#1e1e1e] flex flex-col justify-between hover:border-rose-500 hover:shadow-sm dark:hover:border-rose-500/50 transition-all cursor-pointer group"
+          >
+            <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <div className="p-2.5 bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20">
-                  <Flame size={24} />
+                <div className="p-2 bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20">
+                  <Flame size={20} />
                 </div>
                 <span className="font-mono text-[10px] uppercase font-bold px-2 py-0.5 bg-rose-50 dark:bg-[#161616] text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-900/50">
-                  XGBoost Classifier
+                  XGBoost
                 </span>
               </div>
 
               <div>
-                <h3 className="font-serif text-xl font-bold text-neutral-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors">
+                <h3 className="font-serif text-lg font-bold text-neutral-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors">
                   NASA Wildfire Radar
                 </h3>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400 mt-2 leading-relaxed">
-                  Evaluates 375m thermal anomaly pixels from NASA VIIRS satellites, Fire Radiative Power (FRP), and moisture deficits for next-day wildfire escalation.
+                <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">
+                  Active thermal anomaly detection & next-day fire spread risk.
                 </p>
               </div>
 
-              <div className="space-y-2 pt-2 border-t border-neutral-100 dark:border-[#1a1a1a] text-xs font-mono text-neutral-600 dark:text-neutral-400">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 size={13} className="text-rose-500 flex-shrink-0" />
-                  <span>NASA FIRMS VIIRS live satellite telemetry</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 size={13} className="text-rose-500 flex-shrink-0" />
-                  <span>94.8% test accuracy on Indian forest cells</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 size={13} className="text-rose-500 flex-shrink-0" />
-                  <span>Interactive thermal buffer & radius tools</span>
-                </div>
+              <div className="flex items-center gap-2 font-mono text-[10px] text-neutral-400 pt-1">
+                <span className="px-1.5 py-0.5 bg-neutral-100 dark:bg-[#161616] border border-neutral-200 dark:border-[#222222]">
+                  NASA VIIRS
+                </span>
+                <span className="px-1.5 py-0.5 bg-neutral-100 dark:bg-[#161616] border border-neutral-200 dark:border-[#222222]">
+                  Thermal FRP
+                </span>
               </div>
             </div>
 
-            <div className="pt-6 mt-4 border-t border-neutral-100 dark:border-[#1a1a1a] flex items-center justify-between">
-              <span className="font-mono text-[11px] font-bold text-neutral-500">
-                94.8% Acc • NASA 375m
-              </span>
-              <button
-                type="button"
-                onClick={onOpenWildfire}
-                className="inline-flex items-center gap-1.5 px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white font-mono text-xs uppercase font-bold tracking-wider transition-all group-hover:translate-x-0.5"
-              >
-                <span>Launch Wildfire</span>
-                <ArrowRight size={13} />
-              </button>
+            <div className="pt-4 mt-4 border-t border-neutral-100 dark:border-[#1a1a1a] flex items-center justify-between text-xs font-mono font-bold text-rose-600 dark:text-rose-400">
+              <span>Launch Wildfire</span>
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
         </div>

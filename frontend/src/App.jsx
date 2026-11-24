@@ -6,7 +6,7 @@ import { Header, Footer } from './components/Header'
 import { HomePage } from './components/HomePage'
 import { fallbackHotspots, titleFor } from './components/shared'
 
-const API_BASE = import.meta.env.VITE_API_BASE ?? 'http://127.0.0.1:8000'
+const API_BASE = import.meta.env.VITE_API_BASE
 
 const defaultLocation = {
   latitude: 26.1445,
